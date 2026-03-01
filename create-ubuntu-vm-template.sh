@@ -42,7 +42,7 @@ qm set "$VM_ID" --serial0 socket --vga serial0
 qm resize "$VM_ID" scsi0 20G
 
 echo "Applying Cloud-Init settings..."
-read -p "CI Password: " CI_PASS
+read -s -p "CI Password: " CI_PASS
 qm set "$VM_ID" --ciuser ubuntu --cipassword "$CI_PASS"
 qm set "$VM_ID" --sshkeys ~/.ssh/id_rsa.pub
 qm set "$VM_ID" --ipconfig0 ip=dhcp
